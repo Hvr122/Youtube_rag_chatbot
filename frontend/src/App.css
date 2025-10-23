@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
+.App {
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  margin-bottom: 2rem;
 }
 
-@keyframes logo-spin {
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+button {
+  align-self: center;
+  min-width: 200px;
+}
+
+/* Messages container - centered */
+.messages {
+  max-height: 500px;
+  overflow-y: auto;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.02);
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Individual message bubbles */
+.message {
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease;
+}
+
+.message.user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.message.assistant {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  margin-right: auto;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Scrollbar styling */
+.messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: rgba(100, 108, 255, 0.5);
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 108, 255, 0.7);
+}
+
+/* Loading state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  h1 {
+    font-size: 2rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .message {
+    max-width: 90%;
+  }
+
+  .messages {
+    max-height: 400px;
+  }
 }
