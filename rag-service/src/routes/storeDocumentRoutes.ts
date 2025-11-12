@@ -2,7 +2,7 @@ import express , {Request,Response,Router} from "express"
 import { storeDocument } from "../services/storeDocumentService.js"
 const router:Router = express.Router() ;
 
-router.post("/", async (req:Request, res:Response) => {
+router.post("/", async (req:Request,res:Response) => {
     try {
         const result = await storeDocument(req) ;
         res.status(200).json(result) ;
@@ -11,4 +11,4 @@ router.post("/", async (req:Request, res:Response) => {
     }
 }) ;
 
-export { router as storeDocumentRoute } ;
+export { router as storeDocumentRoute };
